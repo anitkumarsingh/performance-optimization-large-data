@@ -124,7 +124,7 @@ const UnOptimizedTable = (props) => {
 
 						<Container className='my-0' fluid={true}>
 							{itemList.map((i) => (
-								<RowList index={i.id} />
+								<RowList index={i.id} key={i.id + Math.random(10)} />
 							))}
 						</Container>
 					</Col>

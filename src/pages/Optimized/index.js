@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Profiler } from 'react';
 import CustomSpinner from '../../components/Spinner';
 import Table from '../../components/Table';
 import { BASE_URL } from '../../constants/api';
+import { callback } from '../../utils/profilerCallback';
 
 const OptimizedTable = () => {
 	const [data, setData] = useState([]);
@@ -22,7 +23,11 @@ const OptimizedTable = () => {
 	if (data.length === 0) {
 		return <CustomSpinner />;
 	} else {
-		return <Table ItemList={data} />;
+		return (
+			<Profiler id='optimizedTable' onRender={callback}>
+				<Table ItemList={data} />
+			</Profiler>
+		);
 	}
 };
 
