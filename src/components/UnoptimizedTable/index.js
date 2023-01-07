@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Col, Container, Dropdown, Row } from 'react-bootstrap';
-import exportFromJSON from 'export-from-json';
-import { RiFileExcel2Line } from 'react-icons/ri';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const UnOptimizedTable = (props) => {
 	const [itemList, setItemList] = useState(props.ItemList);
+
 	const RowList = ({ index, style }) => (
 		<Row className='grid-row' style={style}>
 			<Col className='grid-col-first' md={1} lg={1}>
@@ -44,19 +43,6 @@ const UnOptimizedTable = (props) => {
 		}
 	};
 
-	const ExportXLXS = (data) => {
-		const fileName = 'download';
-		const exportType = 'xls';
-
-		exportFromJSON({ data, fileName, exportType });
-	};
-
-	const ExportCSV = (data) => {
-		const fileName = 'download';
-		const exportType = 'csv';
-		exportFromJSON({ data, fileName, exportType });
-	};
-
 	const listRef = React.createRef();
 
 	return (
@@ -82,22 +68,6 @@ const UnOptimizedTable = (props) => {
 										className='form-control mx-1'
 										type='text'
 									/>
-								</Col>
-								<Col md={2} lg={2} sm={3} xs={6}>
-									<Dropdown>
-										<Dropdown.Toggle variant='primary' id='dropdown-basic'>
-											<RiFileExcel2Line /> Excel Export
-										</Dropdown.Toggle>
-
-										<Dropdown.Menu>
-											<Dropdown.Item onClick={ExportCSV.bind(this, itemList)}>
-												<button className='btn'> Export CSV</button>{' '}
-											</Dropdown.Item>
-											<Dropdown.Item onClick={ExportXLXS.bind(this, itemList)}>
-												<button className='btn'> Export xls</button>{' '}
-											</Dropdown.Item>
-										</Dropdown.Menu>
-									</Dropdown>
 								</Col>
 							</Row>
 						</Container>

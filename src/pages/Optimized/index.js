@@ -1,8 +1,9 @@
-import React, { useState, useEffect, Profiler } from 'react';
-import CustomSpinner from '../../components/Spinner';
-import Table from '../../components/Table';
+import React, { useState, useEffect, Profiler, lazy } from 'react';
 import { BASE_URL } from '../../constants/api';
-import { callback } from '../../utils/profilerCallback';
+
+const CustomSpinner = lazy(() => import('../../components/Spinner'));
+const Table = lazy(() => import('../../components/Table'));
+const callback = lazy(() => import('../../utils/profilerCallback'));
 
 const OptimizedTable = () => {
 	const [data, setData] = useState([]);
@@ -31,4 +32,4 @@ const OptimizedTable = () => {
 	}
 };
 
-export default OptimizedTable;
+export default React.memo(OptimizedTable);

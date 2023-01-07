@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Col, Container, Dropdown, Row } from 'react-bootstrap';
+import React, { useState, lazy } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import { FixedSizeList } from 'react-window';
-import exportFromJSON from 'export-from-json';
-import { RiFileExcel2Line } from 'react-icons/ri';
+
+const Input = lazy(() => import('../Inputs'));
 
 const Table = (props) => {
 	const [itemList, setItemList] = useState(props.ItemList);
@@ -29,7 +29,6 @@ const Table = (props) => {
 
 	const SearchRow = (e) => {
 		let rowNo = e.target.value;
-		console.log('asdasdas', parseInt(rowNo));
 		if (parseInt(rowNo)) {
 			console.log('asdasdas inside', rowNo);
 			listRef.current.scrollToItem(parseInt(rowNo), 'start');
@@ -48,19 +47,6 @@ const Table = (props) => {
 		}
 	};
 
-	const ExportXLXS = (data) => {
-		const fileName = 'download';
-		const exportType = 'xls';
-
-		exportFromJSON({ data, fileName, exportType });
-	};
-
-	const ExportCSV = (data) => {
-		const fileName = 'download';
-		const exportType = 'csv';
-		exportFromJSON({ data, fileName, exportType });
-	};
-
 	const listRef = React.createRef();
 
 	return (
@@ -72,36 +58,20 @@ const Table = (props) => {
 							<h4>React Optimized Table Component</h4>
 							<Row>
 								<Col md={3} lg={3} sm={3} xs={6}>
-									<input
+									<Input
 										placeholder='Search By Title'
 										className='form-control'
-										onChange={SearchList}
+										handlerChange={SearchList}
 										type='text'
 									/>
 								</Col>
 								<Col md={2} lg={2} sm={3} xs={6}>
-									<input
-										onChange={SearchRow}
+									<Input
+										handlerChange={SearchRow}
 										placeholder='Row No'
 										className='form-control mx-1'
 										type='text'
 									/>
-								</Col>
-								<Col md={2} lg={2} sm={3} xs={6}>
-									<Dropdown>
-										<Dropdown.Toggle variant='primary' id='dropdown-basic'>
-											<RiFileExcel2Line /> Excel Export
-										</Dropdown.Toggle>
-
-										<Dropdown.Menu>
-											<Dropdown.Item onClick={ExportCSV.bind(this, itemList)}>
-												<button className='btn'> Export CSV</button>{' '}
-											</Dropdown.Item>
-											<Dropdown.Item onClick={ExportXLXS.bind(this, itemList)}>
-												<button className='btn'> Export xls</button>{' '}
-											</Dropdown.Item>
-										</Dropdown.Menu>
-									</Dropdown>
 								</Col>
 							</Row>
 						</Container>

@@ -1,4 +1,4 @@
-export const callback = (id, phase, actualTime, baseTime, startTime, commitTime) => {
+const callback = (id, phase, actualTime, baseTime, startTime, commitTime) => {
 	console.log(`${id}'s ${phase} phase:`);
 	console.log(`Actual time: ${actualTime}`);
 	console.log(`Base time: ${baseTime}`);
@@ -6,3 +6,5 @@ export const callback = (id, phase, actualTime, baseTime, startTime, commitTime)
 	console.log(`Commit time: ${commitTime}`);
 	return id;
 };
+
+export default callback;

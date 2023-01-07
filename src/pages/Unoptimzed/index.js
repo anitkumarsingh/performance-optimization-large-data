@@ -2,7 +2,7 @@ import React, { useState, useEffect, Profiler } from 'react';
 import CustomSpinner from '../../components/Spinner';
 import Table from '../../components/UnoptimizedTable';
 import { BASE_URL } from '../../constants/api';
-import { callback } from '../../utils/profilerCallback';
+import callback from '../../utils/profilerCallback';
 
 const UnOptimizedTablePage = () => {
 	const [data, setData] = useState([]);
