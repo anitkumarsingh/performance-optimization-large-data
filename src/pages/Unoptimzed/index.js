@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+import CustomSpinner from '../../components/Spinner';
+import Table from '../../components/UnoptimizedTable';
+import { BASE_URL } from '../../constants/api';
 
-const UnOptimizedTable = () => {
-  return (
-    <div>UnOptimizedTable</div>
-  )
-}
+const UnOptimizedTablePage = () => {
+	const [data, setData] = useState([]);
 
-export default UnOptimizedTable
+	const getPhotos = async () => {
+		const fetchPhotosResource = await fetch(`${BASE_URL}/photos`);
+		const fetchCommentsResource = await fetch(`${BASE_URL}/comments`);
+		const photoResult = await fetchPhotosResource.json();
+		const commentsResult = await fetchCommentsResource.json();
+		const combineRes = [...photoResult, ...commentsResult];
+		setData(combineRes);
+	};
+
+	useEffect(() => {
+		getPhotos();
+	}, []);
+	if (data.length === 0) {
+		return <CustomSpinner />;
+	} else {
+		return <Table ItemList={data} />;
+	}
+};
+
+export default UnOptimizedTablePage;

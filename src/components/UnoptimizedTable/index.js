@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Col, Container, Dropdown, Row } from 'react-bootstrap';
-import { FixedSizeList } from 'react-window';
 import exportFromJSON from 'export-from-json';
 import { RiFileExcel2Line } from 'react-icons/ri';
 
-const Table = (props) => {
+const UnOptimizedTable = (props) => {
 	const [itemList, setItemList] = useState(props.ItemList);
 	const RowList = ({ index, style }) => (
 		<Row className='grid-row' style={style}>
@@ -66,7 +65,7 @@ const Table = (props) => {
 				<Row className='d-flex justify-content-center'>
 					<Col md={10} lg={12} className='grid-card'>
 						<Container className='my-3' fluid={true}>
-							<h4>React Optimized Table Component</h4>
+							<h4>React Optimized UnOptimizedTable Component</h4>
 							<Row>
 								<Col md={3} lg={3} sm={3} xs={6}>
 									<input
@@ -124,15 +123,9 @@ const Table = (props) => {
 						</Container>
 
 						<Container className='my-0' fluid={true}>
-							<FixedSizeList
-								ref={listRef}
-								{...props}
-								className='grid-div'
-								itemCount={itemList.length}
-								height={400}
-								itemSize={150}>
-								{RowList}
-							</FixedSizeList>
+							{itemList.map((i) => (
+								<RowList index={i.id} />
+							))}
 						</Container>
 					</Col>
 				</Row>
@@ -141,4 +134,4 @@ const Table = (props) => {
 	);
 };
 
-export default Table;
+export default UnOptimizedTable;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CustomSpinner from '../../components/Spinner';
 import Table from '../../components/Table';
 import { BASE_URL } from '../../constants/api';
 
@@ -19,7 +20,7 @@ const OptimizedTable = () => {
 	}, []);
 
 	if (data.length === 0) {
-		return <p>Loading...</p>;
+		return <CustomSpinner />;
 	} else {
 		return <Table ItemList={data} />;
 	}

@@ -10,13 +10,9 @@ const Layout = () => {
 			<Navbar bg='primary' variant='dark'>
 				<Container>
 					<LinkContainer to='/'>
-						<Navbar.Brand>Navbar</Navbar.Brand>
+						<Navbar.Brand>Rendering Optimization Demo</Navbar.Brand>
 					</LinkContainer>
-
 					<Nav className='me-auto'>
-						<LinkContainer to='/'>
-							<Nav.Link>Home</Nav.Link>
-						</LinkContainer>
 						<LinkContainer to='optimized'>
 							<Nav.Link>Performance Optimized</Nav.Link>
 						</LinkContainer>
