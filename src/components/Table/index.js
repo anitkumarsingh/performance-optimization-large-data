@@ -6,6 +6,7 @@ import { RiFileExcel2Line } from 'react-icons/ri';
 
 const Table = (props) => {
 	const [itemList, setItemList] = useState(props.ItemList);
+
 	const RowList = ({ index, style }) => (
 		<Row className='grid-row' style={style}>
 			<Col className='grid-col-first' md={1} lg={1}>
@@ -25,14 +26,16 @@ const Table = (props) => {
 			</Col>
 		</Row>
 	);
+
 	const SearchRow = (e) => {
 		let rowNo = e.target.value;
-		console.log('asdasdas', parseInt(rowNo, 100));
+		console.log('asdasdas', parseInt(rowNo));
 		if (parseInt(rowNo)) {
 			console.log('asdasdas inside', rowNo);
 			listRef.current.scrollToItem(parseInt(rowNo), 'start');
 		}
 	};
+
 	const SearchList = (e) => {
 		let keyword = e.target.value;
 		if (keyword !== '') {
