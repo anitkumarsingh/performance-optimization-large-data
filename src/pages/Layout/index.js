@@ -14,10 +14,10 @@ const Layout = () => {
 					</LinkContainer>
 					<Nav className='me-auto'>
 						<LinkContainer to='optimized'>
-							<Nav.Link>Performance Optimized</Nav.Link>
+							<Nav.Link>Optimized</Nav.Link>
 						</LinkContainer>
 						<LinkContainer to='/unoptimized'>
-							<Nav.Link>Not Performance Optimized</Nav.Link>
+							<Nav.Link>Not Optimized</Nav.Link>
 						</LinkContainer>
 					</Nav>
 				</Container>
@@ -26,4 +26,4 @@ const Layout = () => {
 	);
 };
 
-export default Layout;
+export default React.memo(Layout);
