@@ -6,8 +6,10 @@ body{
 
 .grid-row-head{
     padding: 10px;
-    background: #F5F5F5;
+    background: #0F6DFB;
     margin-bottom: 5px;
+    color: #ffffff;
+    font-weight: bolder;
 }
 
 .grid-col-head{
@@ -44,8 +46,9 @@ body{
 .grid-card{
     padding-bottom: 30px;
     padding-top: 20px;
-    border-bottom: 10px solid #0F6DFB;
-    box-shadow: 0 4px 8px rgba(36, 108, 31, 0.03);
+    border-bottom: 5px solid #0F6DFB;
+    /* box-shadow: 0 4px 8px rgba(36, 108, 31, 0.03); */
+    box-shadow: 5px 5px 30px 0 rgb(0 0 0 / 15%);
     margin-top: 40px;
     z-index: 1000 ;
     background: #ffffff;
@@ -53,7 +56,7 @@ body{
 }
 .grid-div {
     overflow: scroll;
-    scrollbar-color: #217346 #F5F5F5;
+    scrollbar-color: #0F6DFB #F5F5F5;
     scrollbar-width: thin;
 
 }
@@ -67,7 +70,7 @@ body{
 .grid-div::-webkit-scrollbar-thumb:vertical {
     height: 30px;
     border-radius: 4px;
-    background: #217346;
+    background: #0F6DFB;
 }
 
 

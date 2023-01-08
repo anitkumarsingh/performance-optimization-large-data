@@ -26,7 +26,7 @@ const OptimizedTable = () => {
 	} else {
 		return (
 			<Profiler id='optimizedTable' onRender={callback}>
-				<Table ItemList={data} />
+				<Table list={data} />
 			</Profiler>
 		);
 	}
