@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import CustomSpinner from '../components/Spinner';
 import Layout from '../pages/Layout';
 
 const Home = lazy(() => import('../pages/Home'));
@@ -10,7 +11,7 @@ const Router = () => {
 	return (
 		<>
 			<Layout />
-			<Suspense fallback={<div>Loading...</div>}>
+			<Suspense fallback={<CustomSpinner />}>
 				<Routes>
 					<Route index path='/' element={<Home />} />
 					<Route path='optimized' element={<OptimizedTable />} />
