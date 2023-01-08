@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../App.css';
+
 
 const Home = () => {
-  return <div className='text-center'>Home</div>;
-}
+	return <div className='text-center'>Home page</div>;
+};
 
 export default Home
